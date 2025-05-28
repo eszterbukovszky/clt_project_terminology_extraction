@@ -1,0 +1,44 @@
+# Terminologieextraktion
+
+Dieses Projekt implementiert ein System zur automatischen Terminologieextraktion aus einem Domänenkorpus (ACL-Abstracts)
+im Vergleich zu einem Referenzkorpus (Reuters aus NLTK).
+
+Das Ziel ist die Identifikation domänenspezifischer Fachbegriffe mithilfe rein statistischer Metriken:
+- Domain Relevance (DR): Vergleich der Häufigkeit in Domäne vs. Referenz
+- Domain Consensus (DC): Entropie über die Verteilung im Domänenkorpus
+
+# Anforderungen
+
+- mindestens Python 3.10
+- `nltk`
+- `bibtexparser`
+
+# Installation und Ausführung
+```bash
+pip install nltk bibtexparser
+python main.py
+
+Das Skript führt folgende Schritte aus:
+
+Laden von Domänen- und Referenzkorpus
+Vorverarbeitung (Tokenisierung, Satzzeichen-/Stoppwortentfernung)
+Bigram-Generierung und Frequenzzählung
+DR/DC-Berechnung und Entscheidungsfunktion
+Filterung mit Schwellenwert θ
+Speicherung in output/
+Evaluation mit Precision und Recall gegen gold_terminology.txt
+
+# Projektstruktur
+
+- acl_abstracts: ACL-Korpus
+- gold_terminology.txt: Goldstandard
+- Output-Ordner: Ergebnisse
+- file_loader.py
+- result_writer.py
+- preprocessor.py
+- extraction.py
+- scorer.py
+- main.py: Hauptausführung
+
+
+
